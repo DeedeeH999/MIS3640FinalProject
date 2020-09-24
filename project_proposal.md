@@ -2,7 +2,6 @@
 ## by Julia Chon, Dairaneara Haith, and Oorja Shah
 
 ### The Big Idea
-#### What is the main idea of your project? What topics will you explore and what will you generate? What is your minimum viable product? What is a stretch goal?
 
 Our goal in this project is to help Airbnb hosts in New York City predict how much they should charge customers based on neighborhood, type of room, reviews, ratings, and other metrics using Python to create a prediction model. 
 
@@ -11,13 +10,12 @@ At the minimum, we can create a prediction model using different Python modules 
 Our stretch goal is to create an interactive map of New York City with this data displayed in Python. This map will have the average price range per neighborhoods in New York city, mimicking a map of realtor house prices. 
 
 ### Learning Goals
-#### Since this is a team project, you may want to articulate both shared and individual learning goals.
-
 ##### Shared Goals: 
 * Gain a better understanding of Python and the modules; specifically the scope of data analysis that can be used with it.
 * Be able to effectively create functions within Python that reduces any redundancies and makes the code simple and easy to understand.
 * Have strong collaboration within our team and efficiently utilize Github as a team work space.
-* Work together (via pair programming) to preprocess the data in order to reduce errors and code as a team in order to solidify our coding skills. 
+* Work together (via pair programming) to preprocess the data in order to reduce errors and code as a team in order to solidify our coding skills.
+
 ##### Individual Goals: 
 **Julia**: To have a data modeling/data analytics project to put on my resume.
 
@@ -26,7 +24,6 @@ Our stretch goal is to create an interactive map of New York City with this data
 **Deedee**: Grow my programming skill set to the point where I can work and experiment with Python on my own. 
 
 ### Implementation Plan
-#### This will probably be pretty vague initially. Perhaps at this early juncture you will have identified a library or a framework that you think will be useful for your project. If you don't have any idea how you will implement your project, provide a rough plan for how you will determine this information.
 
 Dataset: https://docs.google.com/spreadsheets/d/1aE3zH18fX0LhseASGiZjISi7QnPQzLP1AcZ6Gbj63l4/edit?usp=sharing
 
@@ -40,7 +37,6 @@ Source: http://insideairbnb.com/get-the-data.html → This is a dataset from Air
 6. Finish
 
 ### Project Schedule
-#### You have 8 weeks (roughly) to finish the project. Sketch out a rough schedule for completing the project. Depending on your project, you may be able to do this in great specificity or you may only be able to give a broad outline. Additionally, longer projects come with increased uncertainty, and this schedule will likely need to be refined along the way.
 
 |Week    |Goals, Deadlines, Events, etc.|
 |--------|------------------------------|
@@ -56,20 +52,17 @@ Source: http://insideairbnb.com/get-the-data.html → This is a dataset from Air
 |10:11/29|Submit code (due 11/30)|
 
 ### Collaboration Plan
-#### How do you plan to collaborate with your teammates on this project? Will you split tasks up, complete them independently, and then integrate? Will you pair program the entire thing? Make sure to articulate your plan for successfully working together as a team. This might also include information about any software development methodologies you plan to use (e.g. agile development). Make sure to make clear why you are choosing this particular organizational structure.
 
 We plan to work on this project together (through pair programming) in order to reduce the errors as the navigator would always be providing suggestions and helping correct mistakes. We will change the drivers and navigators throughout the course of eight weeks. 
 
 Since we’re all in different timezones, we might split tasks up and complete them independently and then integrate. When integrating, we will go through the code together in order to eliminate the errors. 
 
 ### Risks
-#### What do you view as the biggest risks to the success of this project?
 
 Since we are all Python beginners, one of the potential risks whilst working on this project could be the scope of knowledge about Python. We may not be as thorough with our Python programming skills.
- 
+
 Another risk could be the scope of what Python can do and if we spend too much time trying to create something that won’t work rather than moving on to a different way that works. 
 
 ### Additional Course Content
-#### What are some topics that we might cover in class that you think would be especially helpful for your project?
 
 We think that it would be helpful to learn about predictive modeling in Python, and how to create dashboards and interactive visualizations (ie: maps, graphs, charts, etc.)
