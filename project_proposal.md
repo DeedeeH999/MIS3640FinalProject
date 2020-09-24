@@ -1,7 +1,7 @@
 # Final Project Proposal for MIS3640
 ## by Julia Chon, Dairaneara Haith, and Oorja Shah
 
-### The Big idea
+### The Big Idea
 #### What is the main idea of your project? What topics will you explore and what will you generate? What is your minimum viable product? What is a stretch goal?
 
 Our goal in this project is to help Airbnb hosts in New York City predict how much they should charge customers based on neighborhood, type of room, reviews, ratings, and other metrics using Python to create a prediction model. 
@@ -13,14 +13,21 @@ Our stretch goal is to create an interactive map of New York City with this data
 ### Learning Goals
 #### Since this is a team project, you may want to articulate both shared and individual learning goals.
 
-###### Shared Goals: 
+##### Shared Goals: 
 * Gain a better understanding of Python and the modules; specifically the scope of data analysis that can be used with it.
 * Be able to effectively create functions within Python that reduces any redundancies and makes the code simple and easy to understand.
 * Have strong collaboration within our team and efficiently utilize Github as a team work space.
 * Work together (via pair programming) to preprocess the data in order to reduce errors and code as a team in order to solidify our coding skills. 
-###### Individual Goals: 
-Julia: To have a data modeling/data analytics project to put on my resume.
+##### Individual Goals: 
+**Julia**: To have a data modeling/data analytics project to put on my resume.
 
-Oorja:  Learn something new and improve on my Python programming skills. To have fun working with my team!  
+**Oorja**:  Learn something new and improve on my Python programming skills. To have fun working with my team!  
 
-Deedee: Grow my programming skill set to the point where I can work and experiment with Python on my own. 
+**Deedee**: Grow my programming skill set to the point where I can work and experiment with Python on my own. 
+
+### Implementation Plan
+#### This will probably be pretty vague initially. Perhaps at this early juncture you will have identified a library or a framework that you think will be useful for your project. If you don't have any idea how you will implement your project, provide a rough plan for how you will determine this information.
+
+Dataset: https://docs.google.com/spreadsheets/d/1aE3zH18fX0LhseASGiZjISi7QnPQzLP1AcZ6Gbj63l4/edit?usp=sharing
+
+Source: http://insideairbnb.com/get-the-data.html → This is a dataset from Airbnb that includes information about their hosts, property, price, reviews, among other key metrics.
