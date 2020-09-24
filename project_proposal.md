@@ -45,12 +45,12 @@ Source: http://insideairbnb.com/get-the-data.html → This is a dataset from Air
 |Week    |Goals, Deadlines, Events, etc.|
 |--------|------------------------------|
 |1:  9/27||
-|2:  10/4|Celebrate Deedee’s birthday. Clean the data set. Work on code.|
-|3: 10/11|Celebrate Oorja and Julia’s birthday. Look into machine learning/statistical modeling methods (regression, Naive Bayes, etc.). Work on code|
-|4: 10/18|   |
-|5: 10/25|   |
-|6:  11/1|   |
-|7:  11/8|   |
-|8: 11/15|   |
-|9: 11/22|   |
-|10:11/29|   |
+|2:  10/4|*Celebrate Deedee’s birthday.* Clean the data set. Work on code.|
+|3: 10/11|*Celebrate Oorja and Julia’s birthday.* Look into machine learning/statistical modeling methods (regression, Naive Bayes, etc.). Work on code|
+|4: 10/18|Use Python to create initial prediction model. Work on code.|
+|5: 10/25|Create project website. Work on code.|
+|6:  11/1|Complete website requirements. Work on code.|
+|7:  11/8|Create presentation and practice. Work on code.|
+|8: 11/15|Final presentation (11/19). Work on code.|
+|9: 11/22|Make final changes to code. Create the interactive map. Work on code.|
+|10:11/29|Submit code (due 11/30)|
