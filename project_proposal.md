@@ -31,3 +31,26 @@ Our stretch goal is to create an interactive map of New York City with this data
 Dataset: https://docs.google.com/spreadsheets/d/1aE3zH18fX0LhseASGiZjISi7QnPQzLP1AcZ6Gbj63l4/edit?usp=sharing
 
 Source: http://insideairbnb.com/get-the-data.html → This is a dataset from Airbnb that includes information about their hosts, property, price, reviews, among other key metrics.
+
+1. Clean the data set → Remove unnecessary columns, fill or remove the blank data, check outliers, convert data types etc.
+2. Look into best practices and machine learning methods → See which model is the most accurate
+3. Create prediction model → use the selected variables (neighborhoods, ratings, room type) to predict an estimated price 
+4. Check model
+5. Create map using data → an interactive map the shows average price ranges for areas in the city 
+6. Finish
+
+### Project Schedule
+#### You have 8 weeks (roughly) to finish the project. Sketch out a rough schedule for completing the project. Depending on your project, you may be able to do this in great specificity or you may only be able to give a broad outline. Additionally, longer projects come with increased uncertainty, and this schedule will likely need to be refined along the way.
+
+|Week    |Goals, Deadlines, Events, etc.|
+|--------|------------------------------|
+|1:  9/27|Celebrate Deedee’s birthday. Clean the data set. Work on code.|
+|2:  10/4|   |
+|3: 10/11|   |
+|4: 10/18|   |
+|5: 10/25|   |
+|6:  11/1|   |
+|7:  11/8|   |
+|8: 11/15|   |
+|9: 11/22|   |
+|10:11/29|   |
