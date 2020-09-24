@@ -44,9 +44,9 @@ Source: http://insideairbnb.com/get-the-data.html → This is a dataset from Air
 
 |Week    |Goals, Deadlines, Events, etc.|
 |--------|------------------------------|
-|1:  9/27|Celebrate Deedee’s birthday. Clean the data set. Work on code.|
-|2:  10/4|   |
-|3: 10/11|   |
+|1:  9/27||
+|2:  10/4|Celebrate Deedee’s birthday. Clean the data set. Work on code.|
+|3: 10/11|Celebrate Oorja and Julia’s birthday. Look into machine learning/statistical modeling methods (regression, Naive Bayes, etc.). Work on code|
 |4: 10/18|   |
 |5: 10/25|   |
 |6:  11/1|   |
