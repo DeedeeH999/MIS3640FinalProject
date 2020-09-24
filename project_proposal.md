@@ -59,12 +59,14 @@ Source: http://insideairbnb.com/get-the-data.html → This is a dataset from Air
 #### How do you plan to collaborate with your teammates on this project? Will you split tasks up, complete them independently, and then integrate? Will you pair program the entire thing? Make sure to articulate your plan for successfully working together as a team. This might also include information about any software development methodologies you plan to use (e.g. agile development). Make sure to make clear why you are choosing this particular organizational structure.
 
 We plan to work on this project together (through pair programming) in order to reduce the errors as the navigator would always be providing suggestions and helping correct mistakes. We will change the drivers and navigators throughout the course of eight weeks. 
+
 Since we’re all in different timezones, we might split tasks up and complete them independently and then integrate. When integrating, we will go through the code together in order to eliminate the errors. 
 
 ### Risks
 #### What do you view as the biggest risks to the success of this project?
 
-Since we are all python beginners, one of the potential risks whilst working on this project could be the scope of knowledge about Python. We may not be as thorough with our Python programming skills. 
+Since we are all Python beginners, one of the potential risks whilst working on this project could be the scope of knowledge about Python. We may not be as thorough with our Python programming skills.
+ 
 Another risk could be the scope of what Python can do and if we spend too much time trying to create something that won’t work rather than moving on to a different way that works. 
 
 ### Additional Course Content
