@@ -11,6 +11,7 @@ from bokeh.tile_providers import *
 from bokeh.palettes import *
 from bokeh.transform import *
 from bokeh.layouts import *
+from bokeh.plotting import ColumnDataSource, figure, output_file, show
 
 #reading data
 data = pd.read_csv(r"team_project/listings.csv")
@@ -55,6 +56,7 @@ neighborhood_bar.set_xticklabels(neighborhood_bar.get_xticklabels(), rotation=45
 
 #price distribution by Neighborhood on a map
 #convert latitdue and longitude to mercator values to plot on a map
+average_prices_df = pd.read_csv(r"team_project/average_prices_final.csv")
 def lat_lon_to_mercator(df, lon, lat):
     """Converts decimal longitude/latitude to Web Mercator format"""
     k = 6378137
@@ -62,17 +64,17 @@ def lat_lon_to_mercator(df, lon, lat):
     df["y"] = np.log(np.tan((90 + df[lat]) * np.pi/360.0)) * k
     return df
 
-mercator_df = lat_lon_to_mercator(df_new,'Longitude','Latitude')
+mercator_df = lat_lon_to_mercator(average_prices_df,'longitude','latitude')
 # print(mercator_df)
 #Establishing a zoom scale for the map. 
 scale=2000
 x=mercator_df['x']
 y=mercator_df['y']
 #map is automatically centered on the plot elements.
-x_min=int(x.mean() - (scale * 350))
-x_max=int(x.mean() + (scale * 350))
-y_min=int(y.mean() - (scale * 350))
-y_max=int(y.mean() + (scale * 350))
+x_min=int(x.mean() - (scale * 100))
+x_max=int(x.mean() + (scale * 100))
+y_min=int(y.mean() - (scale * 100))
+y_max=int(y.mean() + (scale * 100))
 #Defining the map tiles to use.
 tile_provider=get_provider(OSM)
 #Establish the bokeh plot object and add the map tile as an underlay. Hide x and y axis.
@@ -93,8 +95,9 @@ plot.yaxis.visible = False
 
 #function takes scale (defined above), the initialized plot object, and the converted dataframe with mercator coordinates to create a hexbin map
 def hex_map(plot,df, scale,leg_label='Hexbin Heatmap'):
-  r,bins=plot.hexbin(x,y,size=scale*10,hover_color='pink',hover_alpha=0.8,legend_label=leg_label)
-  hex_hover = HoverTool(tooltips=[('count','@c')],mode='mouse',point_policy='follow_mouse',renderers=[r])
+#   source = ColumnDataSource(data = mercator_df)
+  r,bins=plot.hexbin(x,y,size=scale*1,hover_color='pink',hover_alpha=0.8,legend_label=leg_label)
+  hex_hover = HoverTool(tooltips=[('price','@average_price')],mode='mouse',point_policy='follow_mouse',renderers=[r])
   hex_hover.renderers.append(r)
   plot.tools.append(hex_hover)
   
@@ -106,7 +109,7 @@ hex_map(plot=plot,
         scale=scale,
         leg_label='Airbnb NY Neighborhoods')
 
-show(plot)
+# show(plot)
 
 # #Brooklyn
 # brooklyn_price=df_new.loc[df_new['Borough'] == 'Brooklyn']
@@ -148,3 +151,5 @@ show(plot)
 # stat_df=[df.set_index('Stats') for df in stat_df]
 # stat_df=stat_df[0].join(stat_df[1:])
 # # print(stat_df)
+
+# sort by room type
