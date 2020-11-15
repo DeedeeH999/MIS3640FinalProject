@@ -14,7 +14,8 @@ from bokeh.layouts import *
 from bokeh.plotting import ColumnDataSource, figure, output_file, show
 
 #reading data
-data = pd.read_csv(r"team_project/listings.csv")
+data = pd.read_csv(r"team_project/listings.csv") #for when deedee is coding
+#data = pd.read_csv(r"listings.csv") #for when julia is coding
 
 #created dataframe of relevant variables
 df = pd.DataFrame(data, columns = ['neighbourhood_group','neighbourhood', 'room_type', 'price', 'minimum_nights','number_of_reviews', 'latitude', 'longitude'])
@@ -56,7 +57,9 @@ neighborhood_bar.set_xticklabels(neighborhood_bar.get_xticklabels(), rotation=45
 
 #price distribution by Neighborhood on a map
 #convert latitdue and longitude to mercator values to plot on a map
-average_prices_df = pd.read_csv(r"team_project/average_prices_final.csv")
+average_prices_df = pd.read_csv(r"team_project/average_prices_final.csv") #for deedee
+#average_prices_df = pd.read_csv(r"Average Prices Final.csv") #for julia
+
 def lat_lon_to_mercator(df, lon, lat):
     """Converts decimal longitude/latitude to Web Mercator format"""
     k = 6378137
