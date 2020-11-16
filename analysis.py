@@ -156,3 +156,15 @@ hex_map(plot=plot,
 # # print(stat_df)
 
 # sort by room type
+# sub_7=df_new.loc[df_new['Neighbourhood'].isin(['Williamsburg','Bedford-Stuyvesant','Harlem','Bushwick',
+#                  'Upper West Side','Hell\'s Kitchen','East Village','Upper East Side','Crown Heights','Midtown'])]
+# viz_3=sns.catplot(x='Neighborhood', hue='Borough', col='Room_Type', data=sub_7, kind='count')
+# viz_3.set_xticklabels(rotation=90) 
+# print(viz_3)
+
+# show correlation
+# corr = df_new.corr(method='kendall')
+# plt.figure(figsize=(15,8))
+# sns.heatmap(corr, annot=True)
+# df_new.columns
+# show(corr)
