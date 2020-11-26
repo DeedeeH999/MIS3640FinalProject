@@ -12,6 +12,12 @@ from bokeh.palettes import *
 from bokeh.transform import *
 from bokeh.layouts import *
 from bokeh.plotting import ColumnDataSource, figure, output_file, show
+from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import r2_score
 
 #reading data
 data = pd.read_csv(r"team_project/listings.csv") #for when deedee is coding
@@ -156,3 +162,44 @@ hex_map(plot=plot,
 # # print(stat_df)
 
 # sort by room type
+# sub_7=df_new.loc[df_new['Neighbourhood'].isin(['Williamsburg','Bedford-Stuyvesant','Harlem','Bushwick',
+#                  'Upper West Side','Hell\'s Kitchen','East Village','Upper East Side','Crown Heights','Midtown'])]
+# viz_3=sns.catplot(x='Neighborhood', hue='Borough', col='Room_Type', data=sub_7, kind='count')
+# viz_3.set_xticklabels(rotation=90) 
+# print(viz_3)
+
+# # map of borough
+# plt.figure(figsize=(10,6))
+# sns.scatterplot(df_new.Longitude,df_new.Latitude,hue=df_new.Borough)
+# plt.ioff()
+
+# Regression model
+df_new.drop(['Latitude','Longitude'], axis=1, inplace=True)
+#examing the changes
+# print(df_new)
+# encoding input variables
+def input_var(data):
+    for column in data.columns[data.columns.isin(['Borough', 'Room_Type', 'Neighborhood'])]:
+        data[column] = data[column].factorize()[0]
+    return data
+df_en = input_var(df_new.copy())
+# print(df_en.head(20))
+#Get Correlation between different variables
+corr = df_en.corr(method='kendall')
+plt.figure(figsize=(18,12))
+sns.heatmap(corr, annot=True)
+# plt.show()
+#independent variables and dependent variables
+x = df_en.iloc[:,[0,1,2,4,5]]
+y = df_en['Price']
+#Getting Test and Training Set
+x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=.2,random_state=1000)
+print(x_test.shape)
+print(x_train.shape)
+# print(y_train.head())
+
+#prepare a regression model 
+regression = LinearRegression()
+regression.fit(x_train, y_train)
+y_pred = regression.predict(x_test) #unsure, what is this trying to do 
+print(r2_score(y_test, y_pred))
