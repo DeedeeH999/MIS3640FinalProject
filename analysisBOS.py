@@ -12,12 +12,16 @@ from sklearn.metrics import confusion_matrix
 from sklearn.metrics import r2_score
 
 """reading data"""
-data = pd.read_csv(r"team_project/listings.csv") #for when deedee is coding
-#data = pd.read_csv(r"listings.csv") #for when julia is coding
+#data = pd.read_csv(r"team_project/listings.csv") 
+data = pd.read_csv(r"listings.csv") 
+
+"""dataframe of all variables except categorical"""
+#df_total = pd.DataFrame(data, columns = ['neighbourhood', 'room_type', 'minimum_nights','number_of_reviews', 'availability_365'])
+# print(df_total)
 
 """created dataframe of relevant variables"""
 df = pd.DataFrame(data, columns = ['neighbourhood', 'room_type', 'price', 'minimum_nights','number_of_reviews', 'latitude', 'longitude'])
-# print(df) #3254 rows and 7 columns
+#print(df) #3254 rows and 7 columns
 
 #cleaning/checking data
 """checking datatype"""
@@ -49,12 +53,12 @@ neighborhood_bar.set_title('Number of Listings by Neighborhood')
 neighborhood_bar.set_xlabel('Neighborhood')
 neighborhood_bar.set_ylabel('Number of Listings')
 neighborhood_bar.set_xticklabels(neighborhood_bar.get_xticklabels(), rotation=45)
-# plt.show()
+#plt.show()
 
 """price distribution by Neighborhood on a map"""
 """convert latitdue and longitude to mercator values to plot on a map"""
-average_prices_df = pd.read_csv(r"team_project/average_prices_final.csv") #for deedee
-# average_prices_df = pd.read_csv(r"Average Prices Final.csv") #for julia
+#average_prices_df = pd.read_csv(r"team_project/average_prices_final.csv") 
+average_prices_df = pd.read_csv(r"average_prices_final.csv") 
 
 """Dorchester"""
 dorchester_price=df_new.loc[df_new['Neighborhood'] == 'Dorchester']
@@ -98,6 +102,41 @@ stat_df=[df.set_index('Stats') for df in stat_df]
 stat_df=stat_df[0].join(stat_df[1:])
 # print(stat_df)
 
+"""bar graph of boston room type"""
+sns.countplot(df_new['Room_Type'], palette="plasma")
+fig = plt.gcf()
+fig.set_size_inches(10,10)
+plt.title('Room Types of Boston')
+#plt.show()
+
+"""pie chart of boston room type"""  
+# Creating dataset 
+Room_Type = ['Entire home/apt', 'Private room', 'Shared room', 'Hotel room'] 
+data = [2074, 1139, 14, 27] 
+# Creating plot 
+fig = plt.figure(figsize =(10, 7)) 
+plt.pie(data, labels = Room_Type)
+# get percentages
+fig, ax = plt.subplots(figsize=(6, 3), subplot_kw=dict(aspect="equal"))
+room_data = ["2074 Entire",
+          "1139 Private",
+          "14 Shared",
+          "27 Hotel"]
+data = [float(x.split()[0]) for x in room_data]
+room_type = [x.split()[-1] for x in room_data]
+def func(pct, allvals):
+    absolute = int(pct/100.*np.sum(allvals))
+    return "{:.1f}%\n({:d})".format(pct, absolute)
+wedges, texts, autotexts = ax.pie(data, autopct=lambda pct: func(pct, data),
+                                  textprops=dict(color="w"))
+ax.legend(wedges, room_type,
+          title="Room Type Legend",
+          loc="center left",
+          bbox_to_anchor=(1, 0, 0.5, 1))
+plt.setp(autotexts, size=8, weight="bold")
+ax.set_title("Pie Chart to show Room Types in Boston")
+# plt.show()
+
 """sort by room type"""
 sub_7=df_new.loc[df_new['Neighborhood'].isin(['Dorchester','Downtown','Jamaica Plain','Brighton',
                  'Roxbury','South End','Back Bay','East Boston','Allston','South Boston'])]
@@ -105,32 +144,35 @@ viz_3=sns.catplot(x='Neighborhood', col='Room_Type', data=sub_7, kind='count')
 viz_3.set_xticklabels(rotation=90) 
 # plt.show()
 
+"""correlation"""
+#corr = df_total.corr(method='kendall')
+corr = df_new.corr(method='kendall')
+plt.figure(figsize=(15,8))
+sns.heatmap(corr, annot=True)
+#print(corr)
+
 """map of neighborhoods"""
 plt.figure(figsize=(10,6))
 sns.scatterplot(df_new.Longitude,df_new.Latitude,hue=df_new.Neighborhood)
-# plt.show()
+#plt.show()
 
 """Regression model"""
 df_new.drop(['Latitude','Longitude'], axis=1, inplace=True)
+#df_new.insert(['availability_365'], )
 """examing the changes"""
-# print(df_new)
+#print(df_new)
 """encoding input variables"""
 def input_var(data):
     for column in data.columns[data.columns.isin(['Neighborhood', 'Room_Type'])]:
         data[column] = data[column].factorize()[0]
     return data
 df_en = input_var(df_new.copy())
-print(df_en.head(10))
-"""get Correlation between different variables"""
-corr = df_en.corr(method='kendall')
-plt.figure(figsize=(18,12))
-sns.heatmap(corr, annot=True)
-# plt.show()
+#print(df_en.head(10))
 """independent variables and dependent variables"""
 x = df_en.iloc[:,[0,1,3,4]]
 y = df_en['Price']
 """Getting Test and Training Set"""
-x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=.2,random_state=1000)
+x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=.2,random_state=100)
 # print(x_test.shape)
 # print(x_train.shape)
 # print(y_train.head())
@@ -139,8 +181,7 @@ x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=.2,random_stat
 regression = LinearRegression()
 regression.fit(x_train, y_train)
 y_pred = regression.predict(x_test) #unsure, what is this trying to do 
-# print(r2_score(y_test, y_pred))
-
+#print(r2_score(y_test, y_pred))
 
 """MAP"""
 # import geopy
