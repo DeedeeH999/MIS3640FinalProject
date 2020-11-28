@@ -12,8 +12,8 @@ from sklearn.metrics import confusion_matrix
 from sklearn.metrics import r2_score
 
 """reading data"""
-#data = pd.read_csv(r"team_project/listings.csv") 
-data = pd.read_csv(r"listings.csv") 
+data = pd.read_csv(r"team_project/listings.csv") 
+# data = pd.read_csv(r"listings.csv") 
 
 """dataframe of all variables except categorical"""
 #df_total = pd.DataFrame(data, columns = ['neighbourhood', 'room_type', 'minimum_nights','number_of_reviews', 'availability_365'])
@@ -57,8 +57,8 @@ neighborhood_bar.set_xticklabels(neighborhood_bar.get_xticklabels(), rotation=45
 
 """price distribution by Neighborhood on a map"""
 """convert latitdue and longitude to mercator values to plot on a map"""
-#average_prices_df = pd.read_csv(r"team_project/average_prices_final.csv") 
-average_prices_df = pd.read_csv(r"average_prices_final.csv") 
+average_prices_df = pd.read_csv(r"team_project/average_prices_final.csv") 
+# average_prices_df = pd.read_csv(r"average_prices_final.csv") 
 
 """Dorchester"""
 dorchester_price=df_new.loc[df_new['Neighborhood'] == 'Dorchester']
@@ -184,8 +184,56 @@ y_pred = regression.predict(x_test) #unsure, what is this trying to do
 #print(r2_score(y_test, y_pred))
 
 """MAP"""
-# import geopy
-# from geopy.geocoders import Nominatim, GoogleV3
-# # geolocator = GoogleV3()
-# geolocator = Nominatim()
+import folium
+"""Create a map:"""
+BostonMap = folium.Map(location=[42.3601, -71.0589])
+"""Create a layer, shaded by neighborhoods:"""
+BostonMap.choropleth(geo_data="team_project/neighbourhoods.json",
+                     fill_opacity=0.1, line_opacity=0.5, zoom_start=12
+                     ) 
+"""Output the map to an .html file:"""
+print(BostonMap)
+BostonMap.save(outfile='bostonMap.html')
+# """Connect df to map"""
+# BostonMap.choropleth(geo_data="team_project/neighbourhoods.json",
+#                      fill_color='YlGnBu', 
+#                      fill_opacity=0.5, 
+#                      line_opacity=0.5,
+#                     #  threshold_scale = [100,200,300,400],
+#                      data = df_new,
+#                      key_on='feature.geometry',
+#                      columns = ['Neighborhood', 'Price']
+#                      ) 
+"""Set markers for neighborhoods"""
+def set_markers(lat, lon, place, price, nbr):
+    coord = [lat, lon]
+    folium.Marker(coord, popup=f'{place}', tooltip=f"{place}, {nbr}, Average Price: ${price}", icon=folium.Icon(color='pink')).add_to(BostonMap)
+    return BostonMap.save(outfile='bostonMap.html')
+
+set_markers(42.3527, -71.1106, 'Boston University Bridge', 103.09, 'Allston')
+set_markers(42.349396, -71.078369, 'Boston Public Library', 185.71, 'Back Bay')
+set_markers(42.3491, -71.0683, 'Bay Village Garden', 123.84, 'Bay Village')
+set_markers(42.3588, -71.0638, 'Massachusetts State House', 168.96, 'Beacon Hill')
+set_markers(42.3489, -71.1480, 'St.Elizabeth Medical Center', 123.06, 'Brighton')
+set_markers(42.3764, -71.0608, 'Bunker Hill Monument', 216.35, 'Charlestown')
+set_markers(42.3495, -71.0628, 'Tufts Medical Center', 182.31, 'Chinatown')
+set_markers(42.3011, -71.0618, 'Boston Arts Academy', 116.55, 'Dorchester')
+set_markers(42.3587, -71.0575, 'Old State House', 218.88, 'Downtown')
+set_markers(42.3650, -71.0361, 'Piers Park', 142.28, 'East Boston')
+set_markers(42.3394, -71.0940, 'Museum of Fine Arts', 332.23, 'Fenway')
+set_markers(42.2615, -71.1364, 'Stony Brook Park', 72.41, 'Hyde Park')
+set_markers(42.3074, -71.1208, 'Arnold Arboretum of Harvard University', 141.15, 'Jamaica Plain')
+set_markers(42.3601, -71.0589, 'Boston City Hall', 24094.50, 'Leather District')
+set_markers(42.3387, -71.0989, 'Isabella Stewart Gardner Museum', 116.91, 'Longwood Medical Area')
+set_markers(42.2686, -71.0935, 'Mattapan Square', 79.98, 'Mattapan')
+set_markers(42.3326785, -71.0998606,'Boston Basilica of Our Lady of Perpetual Help', 129.05, 'Mission Hill')
+set_markers(42.3649708, -71.0570687, 'The Paul Revere House', 160.54, 'North End')
+set_markers(42.2714758, -71.1377954, 'George Wright Golf Course', 99.67, 'Roslindale')
+set_markers(42.3092075, -71.0910525, 'Franklin Park Zoo', 112.13, 'Roxbury')
+set_markers(42.3402396, -71.0511977, 'Boston Convention and Exhibition Center', 178.57, 'South Boston')
+set_markers(42.3302697, -71.047082, 'Carson Beach', 206.43, 'South Boston Waterfront')
+set_markers(42.3438672, -71.0715579, 'Cathedral of the Holy Cross', 183.39, 'South End')
+set_markers(42.3662519, -71.0699514, 'Museum of Science', 256.97, 'West End')
+set_markers(42.2842048, -71.1754214, 'Brook Farm', 221.81, 'West Roxbury')
+
 
