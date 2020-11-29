@@ -1,7 +1,7 @@
 # MIS3640 Final Project
 
 ### Introduction
-Hello friends!:sun_with_face: This is [Julia Chon](https://github.com/juliachon) :hibiscus:, [Dairaneara Haith](https://github.com/DeedeeH999) sunflower:, and [Oorja Shah's](https://github.com/oorjashah) :cherry_blossom: final project for MIS3640 with [Professor Zhi Li](https://github.com/lzblack) :computer:.
+Hello friends!:sun_with_face: This is [Julia Chon](https://github.com/juliachon) :hibiscus:, [Dairaneara Haith](https://github.com/DeedeeH999) :sunflower:, and [Oorja Shah's](https://github.com/oorjashah) :cherry_blossom: final project for MIS3640 with [Professor Zhi Li](https://github.com/lzblack) :computer:.
 
 Our final project is an interactive website that shows an interactive map of Boston, with links to the data analyses we've performed to help Airbnb users make better decisions regarding short-term housing.
 
