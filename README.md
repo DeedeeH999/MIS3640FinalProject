@@ -16,3 +16,10 @@ Our final project is an interactive website that shows an interactive map of Bos
 
 ### Instructions
 1. Our application is coded entirely 
+
+
+
+
+### Attribution
+* [Dataset] (http://insideairbnb.com/get-the-data.html "Scroll down to Boston")
+* [Map] (https://github.com/juliachon/MIS3640FinalProject)
