@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import seaborn as sns
-from bokeh.plotting import ColumnDataSource, figure, output_file, show
 from sklearn.linear_model import LogisticRegression
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
@@ -107,7 +106,7 @@ sns.countplot(df_new['Room_Type'], palette="plasma")
 fig = plt.gcf()
 fig.set_size_inches(10,10)
 plt.title('Room Types of Boston')
-#plt.show()
+# plt.show()
 
 """pie chart of boston room type"""  
 # Creating dataset 
@@ -186,14 +185,14 @@ y_pred = regression.predict(x_test) #unsure, what is this trying to do
 """MAP"""
 import folium
 """Create a map:"""
-BostonMap = folium.Map(location=[42.3601, -71.0589])
+BostonMap = folium.Map(location=[42.3601, -71.0589], width=500, height=500)
 """Create a layer, shaded by neighborhoods:"""
 BostonMap.choropleth(geo_data="team_project/neighbourhoods.json",
                      fill_opacity=0.1, line_opacity=0.5, zoom_start=12
                      ) 
 """Output the map to an .html file:"""
 print(BostonMap)
-BostonMap.save(outfile='bostonMap.html')
+BostonMap.save(outfile='team_project/templates/bostonMap.html')
 # """Connect df to map"""
 # BostonMap.choropleth(geo_data="team_project/neighbourhoods.json",
 #                      fill_color='YlGnBu', 
@@ -208,7 +207,7 @@ BostonMap.save(outfile='bostonMap.html')
 def set_markers(lat, lon, place, price, nbr):
     coord = [lat, lon]
     folium.Marker(coord, popup=f'{place}', tooltip=f"{place}, {nbr}, Average Price: ${price}", icon=folium.Icon(color='pink')).add_to(BostonMap)
-    return BostonMap.save(outfile='bostonMap.html')
+    return BostonMap.save(outfile='team_project/templates/bostonMap.html')
 
 set_markers(42.3527, -71.1106, 'Boston University Bridge', 103.09, 'Allston')
 set_markers(42.349396, -71.078369, 'Boston Public Library', 185.71, 'Back Bay')
@@ -235,5 +234,6 @@ set_markers(42.3302697, -71.047082, 'Carson Beach', 206.43, 'South Boston Waterf
 set_markers(42.3438672, -71.0715579, 'Cathedral of the Holy Cross', 183.39, 'South End')
 set_markers(42.3662519, -71.0699514, 'Museum of Science', 256.97, 'West End')
 set_markers(42.2842048, -71.1754214, 'Brook Farm', 221.81, 'West Roxbury')
+
 
 
