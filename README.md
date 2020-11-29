@@ -22,4 +22,3 @@ Our final project is an interactive website that shows an interactive map of Bos
 
 ### Attribution
 * [Dataset](http://insideairbnb.com/get-the-data.html "Scroll down to Boston")
-* [Map](https://storymaps.arcgis.com/stories/7c25410ae82744a1843e58cce5e2d3fa)
